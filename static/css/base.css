@@ -1,4 +1,11 @@
 /* static/css/base.css */
+html{
+  grid: display;
+  grid-template: "100px header 100px"
+                 "100px body 100px";
+  grid-template-rows: 200px;
+  border-block-color: black;
+}
 
 body {
   font-family: "Source Sans Pro", sans-serif;
@@ -7,11 +14,13 @@ body {
 header {
   border-bottom: 1px solid #999;
   margin-bottom: 2rem;
-  display: flex;
+  display: grid;
+  text-align: center;
 }
 header h1 a {
   color: red;
   text-decoration: none;
+  text-align: center;
 }
 
 .nav-left {
@@ -29,17 +38,23 @@ header h1 a {
 
 .post-entry h2 {
   margin: 0.5rem 0;
+  display: grid;
 }
 
 .post-entry h2 a,
 .post-entry h2 a:visited {
   color: blue;
   text-decoration: none;
+  display: grid;
+  text-align: center;
+ 
+
 }
 
 .post-entry p {
   margin: 0;
   font-weight: 400;
+  text-align: center;
 }
 
 .post-entry h2 a:hover {

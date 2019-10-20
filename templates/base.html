@@ -3,26 +3,24 @@
 
 <html>
 
-<head>
-    <title>Django blog</title>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
-    <link href="{% static 'css/base.css' %}" rel="stylesheet">
-</head>
-<header>
-    <h1>
-        <a href="{% url 'home' %}">Django Blog</a>
-    </h1>
+    <head>
+        <title>Django blog</title>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    </head>
 
-</header>
+    <header>
+        <h1>
+            <a href="{% url 'home' %}">Django Blog</a>
+        </h1>
 
-<body>
-    <div>
+    </header>
 
-    </div>
-    <div>
-        {% block content %}
-        {% endblock content %}
-    </div>
-</body>
+    <body>
+        <div>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
 
 </html>
