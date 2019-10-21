@@ -2,3 +2,13 @@
     "python.pythonPath": "/Applications/anaconda3/bin/python",
     "python.formatting.provider": "yapf"
 }
+
+{
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django"
+    ],
+
+    "[python]": {
+
+    }
+}

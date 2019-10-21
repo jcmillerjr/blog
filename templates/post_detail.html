@@ -7,8 +7,8 @@
 <!-- The div below is using class post-entry bring over the 
     object.title = post.title and object.body = post.body -->
 <div class="post-entry">
-    <h2>{{ object.title }}</h2>
-    <p>{{ object.body }}</p> 
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.body }}</p> 
 </div>
     <p>
         <a href="{% url 'post_edit' post.pk %}">+ Edit Blog Post</a>

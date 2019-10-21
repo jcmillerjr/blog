@@ -4,27 +4,23 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Post
+from models.model import Post
 # Create your tests here.
 
-class BlogTests(TestCase):
 
+class BlogTests(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create.user(
-            username = 'testuser',
-            email = 'test@email.com',
-            password = 'secret'
-
-        )
+            username='testuser', email='test@email.com', password='secret')
 
         self.post = Post.objects.create(
-            title = 'A good title',
-            body = 'Nice body content',
-            author = self.user,
+            title='A good title',
+            body='Nice body content',
+            author=self.user,
         )
 
     def testing_string_representation(self):
-        post = Post(title = 'A sample title')
+        post = Post(title='A sample title')
         self.assertEqual(str(post), post.title)
 
     def test_get_absolute_url(self):
@@ -46,14 +42,14 @@ class BlogTests(TestCase):
         no_response = self.client.get('/post/10000/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
-        self.assertContains(response,  'A good title')
+        self.assertContains(response, 'A good title')
         self.assertTemplateUsed(response, 'post_detail.html')
 
     def test_post_create_view(self):
         response = self.client.post(reverse('post_new'), {
-            'title' : 'New title',
-            'body' : 'New title',
-            'author' : self.user
+            'title': 'New title',
+            'body': 'New title',
+            'author': self.user
         })
 
         self.assertEqual(response.status_code, 200)
@@ -62,13 +58,11 @@ class BlogTests(TestCase):
 
     def test_post_update_view(self):
         response = self.client.post(reverse('post_edit', args='1'), {
-            'title' : 'Updated Title',
-            'body' : 'Updated Text'
+            'title': 'Updated Title',
+            'body': 'Updated Text'
         })
         self.assertEqual(response.status_code, 302)
 
     def test_post_delete_view(self):
-        response = self.client.get(
-            reverse('post_delete', args='1')) 
+        response = self.client.get(reverse('post_delete', args='1'))
         self.assertEqual(response.status_code, 200)
-        
